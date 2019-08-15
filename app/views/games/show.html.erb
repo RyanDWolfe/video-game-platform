@@ -1,1 +1,10 @@
-<h1>This is Game 1</h1>
+<h1> <%= @game.name %> </h1>
+<h3><%= @game.description %> </h3>
+<h3><%= @game.genre %> </h3>
+<h3><%= @game.developer.name %> </h3>
+<h3>"You win by reaching a score of <%= @game.win_parameter %>." </h3>
+<h3>"You lose by reaching a health/score of <%= @game.lose_parameter %>." </h3>
+<br>
+<%= link_to 'List', games_path %>
+<%= link_to 'Edit', edit_game_path(@game) %>
+<%= link_to 'Destroy', game_path(@game), method: :delete, data: { confirm: 'Are you sure you want to delete?' }%>
