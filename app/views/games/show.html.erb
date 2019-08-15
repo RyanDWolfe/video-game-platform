@@ -1,9 +1,9 @@
-<h1> <%= @game.name %> </h1>
-<h3><%= @game.description %> </h3>
-<h3><%= @game.genre %> </h3>
-<h3><%= @game.developer.name %> </h3>
-<h3>"You win by reaching a score of <%= @game.win_parameter %>." </h3>
-<h3>"You lose by reaching a health/score of <%= @game.lose_parameter %>." </h3>
+<h3> Name</h3> <%= @game.name %>
+<h3>Description</h3> <%= @game.description %>
+<h3>Genre</h3> <%= @game.genre %>
+<h3>Developer</h3> <%= @game.developer.name %>
+<p>You win by reaching a score of <%= @game.win_parameter %>. </p>
+<p>You lose by reaching a health/score of <%= @game.lose_parameter %>. </p>
 <br>
 <%= link_to 'List', games_path %>
 <%= link_to 'Edit', edit_game_path(@game) %>
