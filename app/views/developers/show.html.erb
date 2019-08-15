@@ -1,1 +1,6 @@
-<h1>Developer 1</h1>
+<h1> <%= @developer.name %> </h1>
+
+<%= link_to 'List', developers_path %>
+<%= link_to 'Destroy', developer_path(@developer),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }%>

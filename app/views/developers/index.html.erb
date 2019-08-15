@@ -1,1 +1,7 @@
 <h1>All Developers</h1>
+<%= link_to 'New Developer', new_developer_path %>
+<ul>
+<% @developers.each do |developer| %>
+  <li> <%= developer.name %> <%= link_to "Show", developer_path(developer.id) %>  </li>
+<% end %>
+</ul>
