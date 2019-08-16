@@ -10,11 +10,20 @@
   </head>
 
   <body>
+
     <ul class="nav">
+    <% if current_player %>
       <li><a href="/developers"> Developers </a></li>
       <li><a href="/players"> Players </a></li>
       <li><a href="/games"> Games </a></li>
+      <li><%= link_to "Log Out", signout_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Sign Up", new_player_path %></li>
+      <li><%= link_to "Sign In", signin_path %></li>
+    <% end %>
     </ul>
+
     <%= yield %>
+
   </body>
 </html>
