@@ -1,3 +1,23 @@
 <h1>Start Game?</h1>
 
 <h1>Player 1 with Record</h1>
+
+<p>Submit score and health...</p>
+
+<%= form_for(@game) do |f| %>
+
+  <div>
+    <%= f.label :score %><br>
+    <%= f.text_field :score %>
+  </div>
+
+  <div>
+    <%= f.label :health %><br>
+    <%= f.text_area :health %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>
