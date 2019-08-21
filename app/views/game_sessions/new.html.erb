@@ -3,8 +3,8 @@
 <%= @game.lose_parameter %>
 <p>Submit score and health...</p>
 
-<%= form_for(@game) do |f| %>
-  <%= f.fields_for :game_sessions do |f| %>
+<%= form_for @game_session, url: game_game_sessions_path(player_id: @player.id) do |f| %>
+
   <div>
     <%= f.label :score %><br>
     <%= f.text_field :score %>
@@ -14,7 +14,7 @@
     <%= f.label :health %><br>
     <%= f.text_field :health %>
   </div>
-  <% end %>
+
   <div>
     <%= f.submit %>
   </div>
