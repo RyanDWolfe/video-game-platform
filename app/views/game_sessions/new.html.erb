@@ -1,11 +1,10 @@
-<h1>Start Game?</h1>
-
-<h1>Player 1 with Record</h1>
-
+<h1><%= @player.name %> is playing <%= @game.name %></h1>
+<%= @game.win_parameter %>
+<%= @game.lose_parameter %>
 <p>Submit score and health...</p>
 
 <%= form_for(@game) do |f| %>
-
+  <%= f.fields_for :game_sessions do |f| %>
   <div>
     <%= f.label :score %><br>
     <%= f.text_field :score %>
@@ -13,9 +12,9 @@
 
   <div>
     <%= f.label :health %><br>
-    <%= f.text_area :health %>
+    <%= f.text_field :health %>
   </div>
-
+  <% end %>
   <div>
     <%= f.submit %>
   </div>

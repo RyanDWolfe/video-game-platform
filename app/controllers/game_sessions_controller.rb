@@ -7,14 +7,15 @@ class GameSessionsController < ApplicationController
   end
 
   def new #abstract to a set_up_game method
-    @game_session = GameSession.create(
-      :player_id => params[:player_id],
-      :game_id => params[:game_id]) #need to put these into params
+    @game = Game.find_by(id: params[:game_id])
+    @player = Player.find_by(id: session[:player_id])
+    @game_session = GameSession.new
   end
 
   def create
     @game_session = GameSession.new(game_session_params)
     if @game_session.save
+      #game_outcome(@game_session)
       redirect_to @game_session
     else
       render :new
