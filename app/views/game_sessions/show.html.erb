@@ -1,5 +1,7 @@
-<h1> Player 1, Session 1 for Game 1 </h1>
+<h1>Player: <%= @player.name %></h1>
+<h1>Game: <%= @game.name %> </h1>
+<h1>Session: <%= @game_session.id %></h1>
 <h1>Your Score: <%= @game_session.score %></h1>
 <h1>Your Health: <%= @game_session.health %> </h1>
 
-<h1>You Win/Lose</h1>
+<h1><%= @game_outcome %></h1>
