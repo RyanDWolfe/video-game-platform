@@ -6,7 +6,7 @@ class GameSessionsController < ApplicationController
 
   end
 
-  def new 
+  def new
 
   end
 
@@ -14,7 +14,7 @@ class GameSessionsController < ApplicationController
     @game_session = GameSession.new(game_session_params)
     @game_session.player_id = params[:player_id]
     @game_session.game_id = params[:game_id]
-    #game_outcome(@game_session)
+    @game_session.game_outcome(@game_session)
     if @game_session.save
       redirect_to game_game_session_path(@game_session.game_id, @game_session.id)
     else
