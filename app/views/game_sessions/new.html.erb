@@ -5,6 +5,19 @@
 
 <%= form_for @game_session, url: game_game_sessions_path(player_id: @player.id) do |f| %>
 
+  <% if @game_session.errors.any? %>
+    <div>
+      <h2>There were some errors:</h2>
+
+      <ul>
+        <% @game_session.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <div>
     <%= f.label :score %><br>
     <%= f.text_field :score %>
