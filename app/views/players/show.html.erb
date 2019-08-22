@@ -1,8 +1,8 @@
 <h1> <%= @player.name %> </h1>
 
 <ul>
-  <%= @game_sessions.each do |game_session| %>
-    <li><strong>Session:</strong> <%= game_session.id %> <strong>Game:</strong> Not Sure <strong>Score:</strong> <%= game_session.score %> <%= link_to "Show", game_game_session_path(game_session.id, game_session.game_id) %> </li>
+  <% @game_sessions.each do |game_session| %>
+    <li><strong>Session:</strong> <%= game_session.id %> <strong>Game:</strong> <%= game_session.game_id %> <strong>Score:</strong> <%= game_session.score %> <%= link_to "Show", game_game_session_path(game_session) %> </li>
   <% end %>
 </ul>
 
