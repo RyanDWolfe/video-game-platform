@@ -5,11 +5,19 @@ class SessionsController < ApplicationController
     @players = Player.all
   end
 
+  def create_facebook
+    @player = Player.find_or_create_by(uid: auth['uid']) do |u|
+      u.name = auth['info']
+    end
+    session[:player_id] = @player.id
+    redirect_to games_path
+  end
+
   def create
     @player = Player.find_by(name: params[:player][:name])
     if @player && @player.authenticate(params[:player][:password])
       session[:player_id] = @player.id
-      redirect_to games_path #do I need to pass info here?
+      redirect_to games_path
     else
       redirect_to signin_path
     end

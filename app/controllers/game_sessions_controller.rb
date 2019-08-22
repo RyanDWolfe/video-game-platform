@@ -14,8 +14,8 @@ class GameSessionsController < ApplicationController
     @game_session = GameSession.new(game_session_params)
     @game_session.player_id = params[:player_id]
     @game_session.game_id = params[:game_id]
-    binding.pry
-    if @game_session.valid? && game_session.save
+    @game_session.game_outcome(@game_session)
+    if @game_session.save
       redirect_to game_game_session_path(@game_session.game_id, @game_session.id)
     else
       render :new #this might need to be game path
