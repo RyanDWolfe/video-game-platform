@@ -4,9 +4,10 @@ class PlayersController < ApplicationController
   def edit
 
   end
-  
+
   def show
-    #@game_session = Game_Session.new
+    @games = Game.all
+    @game_sessions = @player.game_sessions.where(:player_id == @player.id)
   end
 
   def index
