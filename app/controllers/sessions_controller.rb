@@ -9,15 +9,16 @@ class SessionsController < ApplicationController
       # Get access tokens from the google server
       access_token = request.env["omniauth.auth"]
       player = Player.from_omniauth(access_token)
-      log_in(player)
+      #log_in(player)
       # Access_token is used to authenticate request made from the rails application to the google server
       player.google_token = access_token.credentials.token
-      session[:player_id] = player.id
+
       # Refresh_token to request new access_token
       # Note: Refresh_token is only sent once during the first request
       refresh_token = access_token.credentials.refresh_token
       player.google_refresh_token = refresh_token if refresh_token.present?
       player.save
+      session[:player_id] = player.id
       redirect_to games_path
   end
 
@@ -38,8 +39,8 @@ class SessionsController < ApplicationController
 
   private
 
-  def auth
-    request.env['omniauth.auth']
-  end
+  # def auth
+  #   request.env['omniauth.auth']
+  # end
 
 end

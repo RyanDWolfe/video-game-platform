@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :current_player
-  before_action :require_logged_in, except: [:new, :create, :home]
+  before_action :require_logged_in, except: [:new, :create, :home, :googleAuth]
 
   def logged_in?
     !!current_player

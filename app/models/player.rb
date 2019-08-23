@@ -11,6 +11,7 @@ class Player < ApplicationRecord
     where(email: auth.info.email).first_or_initialize do |player|
       player.name = auth.info.name
       player.email = auth.info.email
+      player.password = '123'
     end
   end
 
