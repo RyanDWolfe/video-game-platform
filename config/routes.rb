@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   post "/sessions/create", to: "sessions#create"
   delete "/signout", to: "sessions#destroy"
 
-  get '/auth/facebook/callback' => 'sessions#create_facebook'
+  get 'auth/:provider/callback', to: 'sessions#googleAuth'
+  get 'auth/failure', to: redirect('/')
 
   resources :developers
 

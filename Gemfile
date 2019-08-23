@@ -29,9 +29,10 @@ gem 'jbuilder', '~> 2.5'
  # Use Pry for inspecting code
  gem 'pry'
  # Use omniauth for third party authentication
- gem 'omniauth'
- gem 'omniauth-facebook'
+ gem 'omniauth-google-oauth2'
+ #gem 'devise' try not to use
  gem 'dotenv-rails'
+ gem 'thin'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
