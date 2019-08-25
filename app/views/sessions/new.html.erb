@@ -1,7 +1,7 @@
 <%= form_for @player, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
 
-<div><%= f.label :name, "Select your name" %><br>
-  <%= f.collection_select(:name, @players, :name, :name) %>
+<div><%= f.label :name, "Select your email" %><br>
+  <%= f.collection_select(:email, @players, :email, :email) %>
 </div>
 
   <div>
