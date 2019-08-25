@@ -1,6 +1,7 @@
 <h1><%= @player.name %> is playing <%= @game.name %></h1>
-<%= @game.win_parameter %>
-<%= @game.lose_parameter %>
+<h3>To win you need a score of <%= @game.win_parameter %>.</h3>
+<h3>You lose if your health reaches <%= @game.lose_parameter %>.</h3>
+
 <p>Submit score and health...</p>
 
 <%= form_for @game_session, url: game_game_sessions_path(player_id: @player.id) do |f| %>
