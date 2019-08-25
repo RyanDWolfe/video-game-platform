@@ -19,12 +19,7 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(player_params)
-    if @player.save
-      redirect_to @player
-    else
-      render :new
-    end
+    redirect_to new_session_path
   end
 
   def update
