@@ -15,11 +15,4 @@ class Player < ApplicationRecord
     end
   end
 
-  def make_player(form)
-    where(email: form.email).first_or_create do |player|
-      player.name = form.name
-      player.password = form.password
-    end
-  end
-
 end

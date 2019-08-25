@@ -2,4 +2,6 @@
 
 <%= render 'form' %>
 
+<% if current_player %>
 <%= link_to 'List', players_path %>
+<% end %>

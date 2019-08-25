@@ -19,8 +19,9 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(player_params)
-    if @player.save
+    player = Player.new(player_params)
+    if player.save
+      session[:player_id] = player.id
       redirect_to games_path
     else
       render :new
