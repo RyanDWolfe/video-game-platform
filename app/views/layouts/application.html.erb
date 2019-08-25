@@ -18,7 +18,7 @@
       <li><a href="/games"> Games </a></li>
       <li><%= link_to "Log Out", signout_path, method: :delete %></li>
     <% else %>
-      <li><%= link_to "Sign Up", new_player_path %></li>
+      <li><%= link_to "Sign Up", new_player_path %></li> <!-- change to signup path -->
       <li><%= link_to "Sign In", signin_path %></li>
     <% end %>
     </ul>
