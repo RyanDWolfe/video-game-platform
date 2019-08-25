@@ -12,6 +12,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @developers = Developer.all
   end
 
   def create

@@ -17,7 +17,7 @@
 
   <div>
     <%= f.label :developer_id %><br>
-    <%= f.text_field :developer_id %>
+    <%= f.collection_select(:developer_id, @developers, :id, :name) %>
   </div>
 
   <div>
