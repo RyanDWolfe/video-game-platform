@@ -16,6 +16,9 @@ class SessionsController < ApplicationController
         session[:player_id] = player.id
         redirect_to games_path
       else
+        @player = Player.new
+        @players = Player.all
+        flash[:notice] = "Incorrect Password"
         render 'sessions/new'
       end
     end

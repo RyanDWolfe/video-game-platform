@@ -24,6 +24,7 @@ class PlayersController < ApplicationController
       session[:player_id] = player.id
       redirect_to games_path
     else
+      @player = Player.new
       render :new
     end
   end

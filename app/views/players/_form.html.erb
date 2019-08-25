@@ -1,5 +1,17 @@
 <%= form_for @player do |f| %>
 
+<% if @player.errors.any? %>
+  <div>
+    <h2>There were some errors:</h2>
+
+    <ul>
+      <% @player.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
   <div>
     <%= f.label :name %><br>
     <%= f.text_field :name %>

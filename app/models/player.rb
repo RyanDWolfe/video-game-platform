@@ -5,6 +5,7 @@ class Player < ApplicationRecord
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :password, presence: true
+
   has_many :game_sessions
   has_many :games, through: :game_sessions
 

@@ -35,3 +35,12 @@
  ul li a:hover {
    background-color: #111;
  }
+
+ .field_with_errors input {
+   border-style: solid;
+   border-color: red;
+ }
+
+ .notice {
+   color: red;
+ }

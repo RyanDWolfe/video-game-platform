@@ -1,5 +1,9 @@
 <%= form_for @player, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
 
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <div><%= f.label :name, "Select your email" %><br>
   <%= f.collection_select(:email, @players, :email, :email) %>
 </div>

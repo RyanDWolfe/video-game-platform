@@ -1,6 +1,6 @@
 class GameSessionsController < ApplicationController
 
-  before_action :set_game_session, only: [:show, :new]
+  before_action :set_game_session, only: [:show, :new, :create]
 
   def show
 
@@ -17,7 +17,7 @@ class GameSessionsController < ApplicationController
     @game_session.game_outcome(@game_session)
     if @game_session.save
       redirect_to game_game_session_path(@game_session.game_id, @game_session.id)
-    elsif @game_session.valid?
+    elsif @game_session.valid? #does this work?
       render :new #this might need to be game path
     else
       render :new
