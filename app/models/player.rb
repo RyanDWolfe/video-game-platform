@@ -18,9 +18,8 @@ class Player < ApplicationRecord
   end
 
   def self.most_game_sessions
-    binding.pry
-    @ordered = GameSession.group(:player_id).count.first
-    @winner_id = @ordered[0]
+    @ordered = GameSession.group(:player_id).count
+    @winner_id = @ordered.max_by{|k,v| v}.first
     @winner = Player.find(@winner_id)
   end
 
