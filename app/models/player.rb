@@ -5,7 +5,11 @@ class Player < ApplicationRecord
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :password, presence: true
-  #scope :most_game_sessions
+  scope :most_game_sessions, -> {
+    @ordered = GameSession.group(:player_id).count
+    @winner_id = @ordered.max_by{|k,v| v}.first
+    @winner = Player.find(@winner_id)
+  }
 
   has_many :game_sessions
   has_many :games, through: :game_sessions
@@ -15,12 +19,6 @@ class Player < ApplicationRecord
       player.name = auth.info.name
       player.password = SecureRandom.hex
     end
-  end
-
-  def self.most_game_sessions
-    @ordered = GameSession.group(:player_id).count
-    @winner_id = @ordered.max_by{|k,v| v}.first
-    @winner = Player.find(@winner_id)
   end
 
 end
