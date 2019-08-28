@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 
+  get "/players/most_game_sessions", to: 'players#most_game_sessions'
+
   resources :developers
 
   resources :games do

@@ -5,6 +5,10 @@ class PlayersController < ApplicationController
 
   end
 
+  def most_game_sessions
+    @winner = Player.most_game_sessions
+  end
+
   def show
     @games = Game.all
     @game_sessions = @player.game_sessions.where(:player_id == @player.id)
