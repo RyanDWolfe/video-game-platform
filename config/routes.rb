@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "/players/most_game_sessions", to: 'players#most_game_sessions'
 
   resources :developers
+  # potentially create new route for AJAX response for developers/create and show
+  # get '/developer/:id/name', to: 'developers#name'
 
   resources :games do
     resources :game_sessions

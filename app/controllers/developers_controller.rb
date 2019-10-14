@@ -16,7 +16,7 @@ class DevelopersController < ApplicationController
   def create
     @developer = Developer.new(developer_params)
     if @developer.save
-      redirect_to @developer
+      redirect_to @developer # modify or create another action for AJAX
     else
       render :new
     end

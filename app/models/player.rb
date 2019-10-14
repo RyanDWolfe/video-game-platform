@@ -6,9 +6,11 @@ class Player < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, presence: true
   scope :most_game_sessions, -> {
-    @ordered = GameSession.group(:player_id).count
-    @winner_id = @ordered.max_by{|k,v| v}.first
-    @winner = Player.find(@winner_id)
+    
+    @winner = Player.joins(:game_sessions).group(:player_id).order(player_id.count)
+    # @ordered = GameSession.group(:player_id).count
+    # @winner_id = @ordered.max_by{|k,v| v}.first
+    # @winner = Player.find(@winner_id)
   }
 
   has_many :game_sessions
