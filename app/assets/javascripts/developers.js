@@ -9,18 +9,30 @@ Developer.prototype.renderLi = function(){
   $("#gameName ul").append(html)
 }
 
-  $(function() {
-    $(".js-list").on("click", function(event) {
-      event.preventDefault()
-      let $list = $("#gameName ul");
-      var devId = parseInt($(".js-list").attr("data-id"));
-      $.get("/developers/" + devId + ".json", function(data) {
-        $list.html('')
-        data.games.forEach(function(game){
-           displayGame = new Developer(game)
-           displayGame.renderLi()
-          // $list.append('<li>' + game.name + '</li>') # replace with prototype method
-        })
+$(function() {
+  $(".js-list").on("click", function(event) {
+    event.preventDefault()
+    let $list = $("#gameName ul");
+    var devId = parseInt($(".js-list").attr("data-id"));
+    $.get("/developers/" + devId + ".json", function(data) {
+      $list.html('')
+      data.games.forEach(function(game){
+         displayGame = new Developer(game)
+         displayGame.renderLi()
+      })
+    });
+  });
+});
+
+
+  $(function () {
+    $('.actions').submit(function(event) {
+      event.preventDefault();
+      var values = $(this).serialize();
+      var posting = $.post('/developers', values);
+      posting.done(function(data) {
+        var developer = data;
+        $("#developerName").text(developer["name"]);
       });
     });
   });

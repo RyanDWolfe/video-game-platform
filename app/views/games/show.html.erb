@@ -13,20 +13,6 @@
 
 <a href="#" class="js-more" data-id="<%=@game.id%>">Show More</a>
 
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    $(".js-more").on("click", function(event) {
-      event.preventDefault()
-      let $list = $(".gameName ul");
-      var gameId = parseInt($(".js-more").attr("data-id"));
-      $.get("/games/" + gameId + ".json", function(data) {
-          $list.append('<ul><li>GENRE: ' + data.genre + '</li></ul>')
-
-      });
-    });
-  });
-</script>
-
 
 <div class="gameName">
   <ul>
