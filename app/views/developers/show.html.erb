@@ -15,7 +15,7 @@
       var devId = parseInt($(".js-list").attr("data-id"));
       $.get("/developers/" + devId + ".json", function(data) {
         data.games.forEach(function(game){
-          $list.append('<li>' + game.name + '<button class="js-more" data-id="' + game.id + '">More Info</button>'  + '</li>')
+          $list.append('<li>' + game.name + '</li>')
         })
       });
     });
