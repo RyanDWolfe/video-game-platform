@@ -22,6 +22,20 @@
   });
 </script>
 
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $(".js-more").on("click", function(event) {
+      event.preventDefault()
+      let $list = $(".gameName ul li");
+      var gameId = parseInt($(".js-more").attr("data-id"));
+      $.get("/games/" + gameId + ".json", function(data) {
+        data.games.forEach(function(game){
+          $list.append('<li>' + game.description + '</li>')
+        })
+      });
+    });
+  });
+</script>
 
 
 <div class="gameName">

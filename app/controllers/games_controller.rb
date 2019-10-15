@@ -3,7 +3,11 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def show
-
+    @game = Game.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @game}
+    end
   end
 
   def index
