@@ -3,6 +3,11 @@ class DevelopersController < ApplicationController
 
   def show
     @game = Game.new
+    @developer = Developer.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @developer}
+    end
   end
 
   def index

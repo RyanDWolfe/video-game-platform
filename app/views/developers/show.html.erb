@@ -3,3 +3,29 @@
 <%= link_to 'List', developers_path %>
 <%= link_to 'Edit', edit_developer_path(@developer) %>
 <%= link_to 'Destroy', developer_path(@developer), method: :delete, data: { confirm: 'Are you sure you want to delete?' }%>
+
+<a href="#" class="js-list" data-id="<%=@developer.id%>">Show Games</a>
+
+<!-- need to prevent multiple clicks -->
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $(".js-list").on("click", function(event) {
+      event.preventDefault()
+      let $list = $(".gameName ul");
+      var devId = parseInt($(".js-list").attr("data-id"));
+      $.get("/developers/" + devId + ".json", function(data) {
+        data.games.forEach(function(game){
+          $list.append('<li>' + game.name + '<a href="#" class="js-more" data-id="' + game.id + '">More Info</a>'  + '</li>')
+        })
+      });
+    });
+  });
+</script>
+
+
+
+<div class="gameName">
+  <ul>
+
+  </ul>
+</div>

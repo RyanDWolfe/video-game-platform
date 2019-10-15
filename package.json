@@ -1,5 +1,7 @@
 {
   "name": "video-game-platform",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }
