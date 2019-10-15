@@ -22,7 +22,6 @@ class DevelopersController < ApplicationController
     @developer = Developer.new(developer_params)
     if @developer.save
     render json: @developer, status: 201
-    # redirect_to @developer # modify or create another action for AJAX
     else
       render :new
     end
