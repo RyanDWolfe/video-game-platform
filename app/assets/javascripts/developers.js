@@ -23,3 +23,16 @@ $(function() {
     });
   });
 });
+
+
+  $(function () {
+      $('form').submit(function(event) {
+          event.preventDefault();
+          var values = $(this).serialize();
+          var posting = $.post('/developers', values);
+          posting.done(function(data) {
+            var developer = data;
+            $("#developerName").text(developer["name"]);
+          });
+      });
+  });
